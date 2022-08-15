@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.util.List;
 
 @Service
 public class BillService {
@@ -21,5 +22,9 @@ public class BillService {
         bill.setBillType(createBillRequest.getBillType());
         Bill billRes = billRepository.save(bill);
         return billRes.getId();
+    }
+
+    public List<Bill> getAllBills(){
+        return billRepository.findAll();
     }
 }

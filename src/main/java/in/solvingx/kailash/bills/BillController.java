@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("bills")
 public class BillController {
@@ -18,6 +20,10 @@ public class BillController {
     @GetMapping("health")
     public ResponseEntity<String> checkHealth(){
         return ResponseEntity.ok("All Good");
+    }
+    @GetMapping("allBills")
+    public ResponseEntity<List<Bill>> getAllBills(){
+        return ResponseEntity.ok(billService.getAllBills());
     }
     @PostMapping("createBill")
     public ResponseEntity<String> createBill(CreateBillRequest createBillRequest){
