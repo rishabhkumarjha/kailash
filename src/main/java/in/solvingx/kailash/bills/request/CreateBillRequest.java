@@ -2,6 +2,7 @@ package in.solvingx.kailash.bills.request;
 
 import in.solvingx.kailash.bills.modal.BillType;
 import in.solvingx.kailash.bills.modal.BillingLocation;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ public class CreateBillRequest {
     String name;
     BillType billType;
     Float amount;
+    @Schema(example = "2022-08-15")
     String dueDate;
     BillingLocation billingLocation;
 
